@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import "./App.css";
+import React from 'react';
+
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Home from "./components/Home";
+import Works from "./components/Works";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Link to="/">Home</Link>
+        <br />
+        <Link to="/about">About</Link>
+        <br />
+        <Link to="/works">Works</Link>
+        <br />
+        <Link to="/contact">Contact</Link>
+        <br />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/works/" element={<Works />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        {/* <Footer /> */}
+      </div>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+
+// import React, { Component } from 'react';
+
+// class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//       <input type="text" />
+//       <button>SEND</button>
+//     </div>
+//     );
+//   }
+// }
+
+// export default App;
