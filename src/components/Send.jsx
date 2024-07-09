@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const About = () => {
+const Send = () => {
   // IDと名前の状態を管理するためのuseStateフック
   const [id, setId] = useState('');
   const [name, setName] = useState('');
@@ -10,7 +10,7 @@ const About = () => {
     event.preventDefault(); // フォームのデフォルトの送信動作を防ぐ
 
     // APIエンドポイントのURL
-    const apiUrl = 'http://localhost:3001/';
+    const apiUrl = 'http://localhost:3001/send';
 
     try {
       const response = await fetch(apiUrl, {
@@ -36,7 +36,7 @@ const About = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <h1>About</h1>
+        <h1>Send</h1>
         <label>ID:</label>
         <input
           type="text"
@@ -57,4 +57,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Send;

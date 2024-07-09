@@ -2,10 +2,10 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import React from 'react';
 
-import About from "./components/About";
+import Send from "./components/Send";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
-import Works from "./components/Works";
+import Get from "./components/Get";
 
 function App() {
   return (
@@ -13,16 +13,16 @@ function App() {
       <div className="App">
         <Link to="/">Home</Link>
         <br />
-        <Link to="/about">About</Link>
+        <Link to="/send">Send</Link>
         <br />
-        <Link to="/works">Works</Link>
+        <Link to="/get">Get</Link>
         <br />
         <Link to="/contact">Contact</Link>
         <br />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/works/" element={<Works />} />
+          <Route path="/send" element={<Send />} />
+          <Route path="/get/" element={<Get />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         {/* <Footer /> */}
