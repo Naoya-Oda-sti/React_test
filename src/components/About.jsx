@@ -1,25 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const About = () => {
+  // IDと名前の状態を管理するためのuseStateフック
   const [id, setId] = useState('');
   const [name, setName] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // フォームが送信されたときに実行される関数
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // フォームのデフォルトの送信動作を防ぐ
+
+    // APIエンドポイントのURL
+    const apiUrl = 'http://localhost:3001/';
+
     try {
-      const response = await fetch('/api/save', {
-        method: 'POST',
+      const response = await fetch(apiUrl, {
+        method: 'POST', // HTTPメソッド
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json', // コンテンツタイプをJSONに設定
         },
-        body: JSON.stringify({ id, name }),
+        body: JSON.stringify({ id, name }), // IDと名前をJSON形式で送信
       });
-      if (response.ok) {
-        console.log('データが正常に保存されました');
-        // 成功した場合、フォームをリセットするなどの処理をここに追加
-      } else {
-        console.error('データの保存に失敗しました');
+
+      if (!response.ok) {
+        throw new Error('APIリクエストに失敗しました');
       }
+
+      const data = await response.json(); // レスポンスのJSONを解析
+      console.log('サーバーからのレスポンス:', data);
+      // ここで成功したレスポンスに基づいて何かをする
     } catch (error) {
       console.error('エラーが発生しました:', error);
     }
@@ -27,19 +35,26 @@ const About = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        ID:
-        <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
-      </label>
-      <br />
-      <label>
-        名前:
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-      </label>
-      <br />
-      <button type="submit">決定</button>
+      <div>
+        <h1>About</h1>
+        <label>ID:</label>
+        <input
+          type="text"
+          value={id}
+          onChange={(e) => setId(e.target.value)} // ユーザーの入力に基づいてid状態を更新
+        />
+      </div>
+      <div>
+        <label>名前:</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)} // ユーザーの入力に基づいてname状態を更新
+        />
+      </div>
+      <button type="submit">送信</button>
     </form>
   );
-  };
-  
-  export default About;
+};
+
+export default About;
