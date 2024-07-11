@@ -6,6 +6,7 @@ import Send from "./components/Send";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import Get from "./components/Get";
+import Test from "./components/Test";
 
 function App() {
   return (
@@ -19,11 +20,14 @@ function App() {
         <br />
         <Link to="/contact">Contact</Link>
         <br />
+        <Link to="/test">Test</Link>
+        <br />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/send" element={<Send />} />
-          <Route path="/get/" element={<Get />} />
+          <Route path="/get" element={<Get />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
         {/* <Footer /> */}
       </div>
