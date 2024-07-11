@@ -6,13 +6,14 @@ import Send from "./components/Send";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import Get from "./components/Get";
-import Test from "./components/Test";
+import Setmenu from "./components/Setmenu";
+import HomeIcon from '@mui/icons-material/Home';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Link to="/">Home</Link>
+        <Link to="/"><HomeIcon /></Link>
         <br />
         <Link to="/send">Send</Link>
         <br />
@@ -20,14 +21,14 @@ function App() {
         <br />
         <Link to="/contact">Contact</Link>
         <br />
-        <Link to="/test">Test</Link>
+        <Link to="/setmenu">Setmenu</Link>
         <br />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/send" element={<Send />} />
           <Route path="/get" element={<Get />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/test" element={<Test />} />
+          <Route path="/setmenu" element={<Setmenu />} />
         </Routes>
         {/* <Footer /> */}
       </div>
