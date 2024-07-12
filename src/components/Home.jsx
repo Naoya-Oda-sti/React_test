@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const Home = () => {
+function Home () {
 return (
     <div>
       <h1>Home</h1>
+      <p>Welcome to the home page!</p>
     </div>
   );
   };

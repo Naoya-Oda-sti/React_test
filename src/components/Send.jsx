@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Send = () => {
+function Send () {
   // IDと名前の状態を管理するためのuseStateフック
   const [id, setId] = useState('');
   const [name, setName] = useState('');
